@@ -3,7 +3,7 @@ const sections = document.querySelectorAll('.hidden');
 const observerOptions = {
   root: null, // relative to the viewport
   rootMargin: '0px',
-  threshold: 0.5 // trigger when 50% of the element is visible
+  threshold: 0.4 // trigger when 50% of the element is visible
 };
 
 const observer = new IntersectionObserver((entries, observer) => {
@@ -11,7 +11,7 @@ const observer = new IntersectionObserver((entries, observer) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
       // If you want the animation to only happen once, uncomment the line below:
-      // observer.unobserve(entry.target);
+      //observer.unobserve(entry.target);
     } else {
       // If you want the animation to reverse when scrolling back up:
       entry.target.classList.remove('show');
@@ -21,4 +21,13 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 sections.forEach(section => {
   observer.observe(section);
+});
+
+window.addEventListener('scroll', () => {
+  // If at the bottom, jump to the top
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    setTimeout(() => {
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}, 1800); // 800ms delay, adjust as needed
+  }
 });
