@@ -28,6 +28,6 @@ window.addEventListener('scroll', () => {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
     setTimeout(() => {
   window.scrollTo({ top: 0, behavior: 'auto' });
-}, 1800); // 800ms delay, adjust as needed
+}, 1888); //  adjust as needed
   }
 });
