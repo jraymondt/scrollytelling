@@ -1,0 +1,10 @@
+.hidden {
+  opacity: 0;
+  transform: translateY(50px); /* Example: slide up from bottom */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
